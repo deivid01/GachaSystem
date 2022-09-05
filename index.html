@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gacha System</title>
+    <link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="public/css/style.css">
+    <script src="public/js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Gacha System</h1>
+        <p>Inspired in Genshin Impact gacha system</p>
+    </header>
+    
+    <main>
+
+        <div class="resultado" hidden>
+            <span id="resultado"></span>
+        </div>
+
+        <div class="form">
+            <label for="tiros">How many shots do you want to take?</label>
+            <input type="number" name="tiros" id="tiros" max="999" min="0">
+        </div>
+
+        <div class="historico">
+            <label for="historico">Shots history</label><textarea name="historico" id="historico" cols="10" rows="2" disabled></textarea>
+        </div>
+
+        <div class="button">
+            <button id="botao">Shoot</button>
+        </div>
+
+    </main>
+
+    <footer class="rodape">Atual Version: 0.1</footer>
+</body>
+</html>

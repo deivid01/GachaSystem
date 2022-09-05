@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: genshin;
+    src: url(../fonts/zh-cn.ttf) format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: genshin, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+:root {
+    --color1: #0076FA;
+    --color2: #FF0A71;
+    --color3: #DB09E8;
+    --color4: #9102FF;
+    --color5: #3409E8;
+    --color6: #1942FF;
+
+}
+
+body {
+    background-image:linear-gradient(to bottom, var(--color4), var(--color3));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-size: 1em;
+    color: #fff;
+}
+
+header {
+    color: #fff;
+    width: 500px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+header h1 {
+    font-size: 3em;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+header p {
+    font-size: 0.8em;
+    font-weight: 200;
+}
+
+
+main {
+    background-color: var(--color5);
+    color: #fff;
+    width: 500px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.7);
+}
+
+.resultado {
+    background-color: var(--color2);
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.form  {    
+    background-color: var(--color2);
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 20px 20px 0px 0px;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+input#tiros {
+    border-radius: 5px;
+    border: none;
+    padding: 3px;
+}
+
+textarea#historico {
+    border-radius: 5px;
+    padding: 3px;
+    border: none;
+    text-align: center;
+    background-color: #fff;
+}
+
+.historico {
+    background-color: var(--color2);
+    padding: 15px;
+    border-radius: 0px 0px 20px 20px;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    background-color: var(--color2);
+    color: #fff;
+    border: none;
+    font-size: 1.2em;
+    padding: 10px;
+    width: 300px;
+    border-radius: 20px;
+}
+
+button:hover {
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+}
+.rodape {
+    width: 500px;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+}
