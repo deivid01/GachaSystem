@@ -73,6 +73,13 @@ main {
     border-radius: 20px;
 }
 
+#divimg img {
+    width: 450px;
+    height: 250px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
 .form  {    
     background-color: var(--color2);
     padding: 15px;
