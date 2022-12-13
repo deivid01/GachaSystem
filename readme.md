@@ -9,7 +9,7 @@ And the biggest change was the addition of the structure responsible for making 
 This is not yet the final version of the project!</p>
 <br>
 <div align = "center">
-<video src="/public/images/demo-gif.gif" width="500px">
+<video src="/public/images/demogif.gif" width="500px">
 </div>
 <br>
 <div align="center">
