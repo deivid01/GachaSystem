@@ -13,17 +13,17 @@ This is not yet the final version of the project!</p>
 </div>
 <br>
 <div align="center">
-<img src="public/images/screenshot1.JPG" width = "500px">
+<img src="public/images/screenshot1.1.JPG" width = "500px">
 </div>
 <br>
 <br>
 <div align="center">
-<img src="public/images/screenshot2.JPG" width = "500px">
+<img src="public/images/screenshot2.1.JPG" width = "500px">
 </div>
 <br>
 <br>
 <div align="center">
-<img src="public/images/screenshot3.JPG" width = "500px">
+<img src="public/images/screenshot3.1.JPG" width = "500px">
 </div>
 <div align="center">
 <img src="public/images/screenshot3.5.JPG" width = "500px">
@@ -31,7 +31,7 @@ This is not yet the final version of the project!</p>
 <br>
 <br>
 <div align="center">
-<img src="public/images/screenshot4.JPG" width = "500px">
+<img src="public/images/screenshot4.1.JPG" width = "500px">
 </div>
 <br>
 
