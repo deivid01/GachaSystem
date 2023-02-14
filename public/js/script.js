@@ -66,7 +66,7 @@ button.addEventListener("click", (event) => {
     switch(SwitchChar) {
         case "Raiden Shogun":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/raiden.jpg'>"
+            divimg.innerHTML = "<img src = './public/images/raiden.jpg'>"
         break
 
         case "Kamisato Ayaka":
