@@ -66,102 +66,102 @@ button.addEventListener("click", (event) => {
     switch(SwitchChar) {
         case "Raiden Shogun":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = './public/images/raiden.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/raiden.jpg'>"
         break
 
         case "Kamisato Ayaka":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/ayaka.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/ayaka.jpg'>"
         break    
         
         case "Diluc":
             divimg.removeAttribute('hidden')
-        divimg.innerHTML = "<img src = '../public/images/diluc.jpg'>"
+        divimg.innerHTML = "<img src = 'public/images/diluc.jpg'>"
         break
 
         case "Eula":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/eula.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/eula.jpg'>"
         break
 
         case "Ganyu":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/ganyu.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/ganyu.jpg'>"
         break
 
         case "Hu Tao":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/hutao.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/hutao.jpg'>"
         break
 
         case "Arataki Itto":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/itto.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/itto.jpg'>"
         break
 
         case "Kaedehara Kazuha":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/kazuha.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/kazuha.jpg'>"
         break
 
         case "Mona":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/mona.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/mona.jpg'>"
         break
 
         case "Yae Miko":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/yae.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/yae.jpg'>"
         break
 
         case "Lisa":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/lisa.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/lisa.jpg'>"
         break
 
         case "Barbara":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/barbara.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/barbara.jpg'>"
         break
 
         case "Bennett":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/bennett.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/bennett.jpg'>"
         break
 
         case "Diona":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/diona.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/diona.jpg'>"
         break
 
         case "Fischl":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/fischl.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/fischl.jpg'>"
         break
 
         case "Kujou Sara":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/kujousara.jpg'>"            
+            divimg.innerHTML = "<img src = 'public/images/kujousara.jpg'>"            
         break
 
         case "Ningguang":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/ningguang.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/ningguang.jpg'>"
         break
 
         case "Razor":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/razor.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/razor.jpg'>"
         break
 
         case "Rosaria":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/rosaria.jpg'>"
+            divimg.innerHTML = "<img src = 'public/images/rosaria.jpg'>"
         break
 
         case "Amber":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/amber.png'>"
+            divimg.innerHTML = "<img src = 'public/images/amber.png'>"
         break
 
         default :
