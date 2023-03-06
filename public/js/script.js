@@ -161,7 +161,7 @@ button.addEventListener("click", (event) => {
 
         case "Amber":
             divimg.removeAttribute('hidden')
-            divimg.innerHTML = "<img src = '../public/images/amber.png'>"
+            divimg.innerHTML = "<img src = '../public/images/amber.jpg'>"
         break
 
         default :
