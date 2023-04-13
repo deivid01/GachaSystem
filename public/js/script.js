@@ -5,21 +5,23 @@ let tiros = document.getElementById('tiros')
 let historico = document.getElementById('historico')
 let imgres = document.getElementById('divimg')
 
-let personagem4 = ['Bennett', 'Razor', 'Fischl', 'Amber', 'Barbara', 'Diona', 'Kujou Sara', 'Lisa', 'Ningguang', 'Rosaria']
+let personagem4 = ['Bennett', 'Razor', 'Fischl', 'Amber', 'Barbara', 'Diona', 'Kujou Sara', 'Lisa', 'Ningguang', 'Rosaria'] //four star characters arry 
 
-let personagem5 = ['Raiden Shogun', 'Kamisato Ayaka', 'Diluc', 'Mona', 'Arataki Itto', 'Eula', 'Hu Tao', 'Ganyu', 'Kaedehara Kazuha', 'Yae Miko']
+let personagem5 = ['Raiden Shogun', 'Kamisato Ayaka', 'Diluc', 'Mona', 'Arataki Itto', 'Eula', 'Hu Tao', 'Ganyu', 'Kaedehara Kazuha', 'Yae Miko'] // five star characters array
 
 
-button.addEventListener("click", (event) => {
+button.addEventListener("click", (event) => { //main function that makes everything work at the click of the button
 
     event.preventDefault()
 
-    let char5 = pers5()
+    //support variables
+    let char5 = pers5() 
 
     let char4 = pers4()
 
     let SwitchChar = ""
 
+    //functions to generate randomly a four or five star character
     function pers4() {
     return personagem4 [Math.floor(Math.random() * personagem4.length)]
     }
@@ -28,7 +30,8 @@ button.addEventListener("click", (event) => {
         return personagem5[Math.floor(Math.random() * personagem5.length)] 
         
     }
-
+    
+    //result conditions
     if (Number(tiros.value) <= 0) {
         divresultado.removeAttribute('hidden')
         resultado.innerText = 'Invalid shot value'
@@ -63,6 +66,7 @@ button.addEventListener("click", (event) => {
 
     }
 
+    //switch structure to generate character images 
     switch(SwitchChar) {
         case "Raiden Shogun":
             divimg.removeAttribute('hidden')
