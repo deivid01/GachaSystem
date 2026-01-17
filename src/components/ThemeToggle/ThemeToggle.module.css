@@ -1,0 +1,76 @@
+.toggleButton {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  border: 3px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.toggleButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+}
+
+.toggleButton:hover::before {
+  opacity: 0.2;
+}
+
+.toggleButton:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: var(--shadow-glow);
+}
+
+.toggleButton:active {
+  transform: scale(0.95) rotate(15deg);
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.toggleButton:hover .icon {
+  transform: rotate(-15deg) scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .toggleButton {
+    width: 3rem;
+    height: 3rem;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .toggleButton {
+    width: 2.75rem;
+    height: 2.75rem;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.2rem;
+  }
+}

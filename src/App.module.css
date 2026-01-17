@@ -1,0 +1,98 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 3vw, 2rem);
+  padding-top: clamp(4rem, 5vw, 5rem);
+  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.main {
+  background: var(--bg-card);
+  backdrop-filter: var(--blur-glass);
+  width: 100%;
+  max-width: min(650px, 95vw);
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--border-color);
+  position: relative;
+  animation: fadeIn 0.6s ease-out;
+  transition: all 0.3s ease;
+}
+
+.main::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: var(--gradient-primary);
+  border-radius: var(--border-radius);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.main:hover::before {
+  opacity: 0.1;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .app {
+    padding: clamp(0.75rem, 2vw, 1.5rem);
+    padding-top: 4rem;
+  }
+
+  .main {
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    max-width: 100%;
+    border-radius: calc(var(--border-radius) * 0.875);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .app {
+    padding: 0.5rem;
+    padding-top: 3.5rem;
+    justify-content: flex-start;
+  }
+
+  .main {
+    padding: 1rem;
+    border-radius: calc(var(--border-radius) * 0.75);
+    margin-top: 0.5rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+  .app {
+    padding: 0.25rem;
+    padding-top: 3rem;
+  }
+
+  .main {
+    padding: 0.75rem;
+    border-width: 1px;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .app {
+    padding: 0.5rem;
+    padding-top: 3rem;
+    justify-content: flex-start;
+  }
+
+  .main {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
