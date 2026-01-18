@@ -7,10 +7,11 @@ import { Footer } from './components/Footer/Footer';
 import { ThemeToggle } from './components/ThemeToggle/ThemeToggle';
 import { Particles } from './components/Particles/Particles';
 import { GameSearch } from './components/GameSearch/GameSearch';
+import { Statistics } from './components/Statistics/Statistics';
 import styles from './App.module.css';
 
 function App() {
-  const { result, history, isLoading, performPull, resetResult, resetHistory } = useGacha();
+  const { result, history, isLoading, performPull, resetResult, resetHistory, statistics } = useGacha();
 
   return (
     <div className={styles.app}>
@@ -23,6 +24,8 @@ function App() {
         {result && <GachaResult result={result} onClose={resetResult} />}
         
         <GachaForm onPull={performPull} isLoading={isLoading} />
+        
+        <Statistics statistics={statistics} />
         
         <History history={history} onReset={resetHistory} />
 

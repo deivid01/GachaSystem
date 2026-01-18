@@ -5,6 +5,7 @@ interface SoundEffects {
     playSuccess: () => void;
     playRare: () => void;
     playClick: () => void;
+    playPullAnimation: () => void;
 }
 
 export const useSound = (): SoundEffects => {
@@ -63,10 +64,28 @@ export const useSound = (): SoundEffects => {
         playTone(800, 0.05, 'square');
     }, [playTone]);
 
+    const playPullAnimation = useCallback(() => {
+        // Som épico estilo Genshin - fase de revelação
+        // Base drumbeat
+        playTone(110, 0.3, 'sine');
+        setTimeout(() => playTone(220, 0.2, 'square'), 100);
+
+        // Melodia ascendente
+        setTimeout(() => playTone(220, 0.15, 'sine'), 400);
+        setTimeout(() => playTone(330, 0.15, 'sine'), 500);
+        setTimeout(() => playTone(440, 0.15, 'sine'), 600);
+        setTimeout(() => playTone(659, 0.2, 'sine'), 700);
+
+        // Nota final brilhante
+        setTimeout(() => playTone(988, 0.5, 'sine'), 950);
+        setTimeout(() => playTone(1319, 0.4, 'sine'), 1200);
+    }, [playTone]);
+
     return {
         playPull,
         playSuccess,
         playRare,
         playClick,
+        playPullAnimation,
     };
 };

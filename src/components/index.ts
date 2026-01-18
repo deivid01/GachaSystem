@@ -6,3 +6,5 @@ export { Footer } from './Footer/Footer';
 export { ThemeToggle } from './ThemeToggle/ThemeToggle';
 export { Particles } from './Particles/Particles';
 export { GameSearch } from './GameSearch/GameSearch';
+export { GachaPullAnimation } from './GachaPullAnimation/GachaPullAnimation';
+export { Statistics } from './Statistics/Statistics';

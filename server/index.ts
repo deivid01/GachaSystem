@@ -131,6 +131,125 @@ app.post('/api/igdb/games', async (req, res) => {
     }
 });
 
+// Endpoint para buscar imagens de personagens Genshin Impact
+app.get('/api/characters/image', async (req, res) => {
+    try {
+        const { name } = req.query as { name?: string };
+
+        if (!name) {
+            return res.status(400).json({ error: 'Character name required' });
+        }
+
+        // Mapa de personagens com URLs de imagens (Todos os 4★ e 5★)
+        const characterImages: Record<string, string> = {
+            // 4★ Pyro
+            'Amber': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Bennett': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Thoma': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Yanfei': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 4★ Hydro
+            'Barbara': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Candace': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Mika': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Sucrose': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 4★ Electro
+            'Diona': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Fischl': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Kujou Sara': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 4★ Cryo
+            'Chongyun': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Shenhe': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 4★ Anemo
+            'Shikanoin Heizou': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Noelle': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Sayu': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 4★ Geo
+            'Beidou': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Ningguang': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Yun Jin': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 4★ Dendro
+            'Collei': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Faruzan': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Layla': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 4★ Outros
+            'Lisa': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Rosaria': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Razor': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 5★ Pyro
+            'Diluc': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Hu Tao': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Lyney': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 5★ Hydro
+            'Kamisato Ayato': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Sangonomiya Kokomi': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Yelan': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Furina': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Neuvillette': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Mona': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 5★ Electro
+            'Raiden Shogun': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Fischl (Awakened)': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Clorinde': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 5★ Cryo
+            'Kamisato Ayaka': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Ganyu': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 5★ Anemo
+            'Kaedehara Kazuha': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Venti': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Xiao': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Wanderer': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 5★ Geo
+            'Alhaitham': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Eula': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Arataki Itto': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Zhongli': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Baizhu': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 5★ Dendro
+            'Nahida': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Tighnari': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Dehya': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+
+            // 5★ Standard
+            'Jean': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Keqing': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Qiqi': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+            'Yae Miko': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2b63.jpg',
+        };
+
+        const characterName = String(name).trim();
+        const imageUrl = characterImages[characterName] ||
+            characterImages[Object.keys(characterImages).find(
+                key => key.toLowerCase() === characterName.toLowerCase()
+            ) || ''] ||
+            '/public/images/bennett.jpg'; // Fallback padrão
+
+        console.log(`[Characters] Buscando imagem para: ${characterName} -> ${imageUrl}`);
+
+        res.json({
+            imageUrl,
+            source: 'genshin-wiki',
+            character: characterName,
+        });
+    } catch (err) {
+        console.error('[Characters] Erro:', err);
+        res.status(500).json({ error: 'Failed to fetch character image' });
+    }
+});
+
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
     console.log(`[IGDB Proxy] Escutando http://localhost:${port}`);

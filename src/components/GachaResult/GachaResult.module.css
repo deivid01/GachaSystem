@@ -23,36 +23,7 @@
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   border: 3px solid var(--border-color);
-}
-
-.result::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-  background-size: 200% 200%;
-  animation: shimmer 3s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.fourStar {
-  background: var(--star-4);
-  animation: glow 2s ease-in-out infinite;
-}
-
-.fiveStar {
-  background: var(--star-5);
-  animation: glow 1.5s ease-in-out infinite, rainbow 5s linear infinite;
-}
-
-.fiveStar::after {
-  content: '⭐⭐⭐⭐⭐';
-  position: absolute;
-  top: 0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  animation: twinkle 1s ease-in-out infinite;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
 .closeButton {
@@ -190,6 +161,125 @@
   }
 }
 
+.characterGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
+  justify-items: center;
+}
+
+.characterCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: calc(var(--border-radius) * 0.75);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: var(--blur-glass);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.characterCard:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.characterCard:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.characterCard:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.characterCard:nth-child(n+4) {
+  animation-delay: calc(0.4s + (var(--index) * 0.1s));
+}
+
+.characterCard.fourStar {
+  border-color: rgba(188, 135, 255, 0.6);
+  background: rgba(188, 135, 255, 0.15);
+  box-shadow: 0 0 15px rgba(188, 135, 255, 0.3);
+}
+
+.characterCard.fiveStar {
+  border-color: rgba(255, 220, 97, 0.6);
+  background: rgba(255, 220, 97, 0.15);
+  box-shadow: 0 0 20px rgba(255, 220, 97, 0.4);
+  animation: slideUp 0.5s ease-out forwards, glow 1.5s ease-in-out infinite;
+}
+
+.characterCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--border-glow);
+}
+
+.cardImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: calc(var(--border-radius) * 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.cardImage:hover {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: var(--shadow-glow);
+}
+
+.cardName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-primary);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  word-break: break-word;
+  max-width: 110px;
+  line-height: 1.2;
+}
+
+.cardRarity {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.characterCard.fourStar .cardRarity {
+  color: rgba(188, 135, 255, 0.9);
+}
+
+.characterCard.fiveStar .cardRarity {
+  color: rgba(255, 220, 97, 0.9);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.multiCharacterMessage {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
 /* Tablet */
 @media (max-width: 768px) {
   .result {
@@ -202,6 +292,22 @@
 
   .characterImage {
     max-width: 100%;
+  }
+
+  .characterGrid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    padding: 0.75rem 0;
+  }
+
+  .cardImage {
+    width: 85px;
+    height: 85px;
+  }
+
+  .cardName {
+    font-size: 0.85rem;
+    max-width: 95px;
   }
 }
 
@@ -224,6 +330,33 @@
   .fiveStar::after {
     font-size: 0.875rem;
   }
+
+  .characterGrid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 0.875rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .characterCard {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .cardImage {
+    width: 75px;
+    height: 75px;
+  }
+
+  .cardName {
+    font-size: 0.8rem;
+    max-width: 85px;
+  }
+
+  .cardRarity {
+    font-size: 0.75rem;
+  }
 }
 
 /* Small Mobile */
@@ -238,5 +371,22 @@
 
   .characterName {
     font-size: 1.1rem;
+  }
+
+  .characterGrid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.875rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .cardImage {
+    width: 65px;
+    height: 65px;
+  }
+
+  .cardName {
+    font-size: 0.75rem;
+    max-width: 75px;
   }
 }
