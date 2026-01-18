@@ -1,12 +1,21 @@
 import styles from './Footer.module.css';
 
 export const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  
   return (
-    <footer className={styles.footer}>
-      <p>Version: 2.0 | Built with React + TypeScript</p>
-      <p>© {currentYear} Gacha System</p>
+    <footer className={styles.footer} role="contentinfo">
+      <p className={styles.text}>
+        Made by{' '}
+        <a
+          href="https://github.com/deivid01"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.link}
+          aria-label="GitHub de Deivid Peres"
+        >
+          Deivid Peres
+        </a>{' '}
+        with love ❤️ and coffee ☕. © 2026
+      </p>
     </footer>
   );
 };
